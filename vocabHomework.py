@@ -173,6 +173,12 @@ def main():
     choice = input("Do you want randomizing. Helps prevent cheating\nYes or no\n").upper()
     if (choice) == "YES": randomize = True
     else: randomize = False
+    choice = input("Do you want synonyms. \nYes or no\n").upper()
+    if (choice) == "YES": printSynonym = True
+    else: printSynonym = False
+    choice = input("Do you want antonyms.\nYes or no\n").upper()
+    if (choice) == "YES": printAntonym = True
+    else: printAntonym = False
     words = input("Enter your words seperated by a comma and a space\nEx. apple, bannana\n").split(', ')
     for word in words:
         if word[-1] == "-" or word[0] == '-':
@@ -226,8 +232,10 @@ def main():
                 antonym = "    Antonym: " + synonyms.getTotalAntonyms()[randAnt-1] + "\n"
 
             lines.append(word + " (" + definition.getPartOfSpeech() + ") " + "" + definition.getDefinition() + "\n")
-            lines.append(synonym)
-            lines.append(antonym)
+            if (printSynonym):
+                lines.append(synonym)
+            if(printAntonym):
+                lines.append(antonym)
 
             # lines = [word + " (" + definition.getPartOfSpeech() + ") " + "" + definition.getDefinition() + "\n", synonym, antonym]
             
