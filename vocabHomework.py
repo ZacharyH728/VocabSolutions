@@ -179,7 +179,9 @@ def main():
     choice = input("Do you want antonyms.\nYes or no\n").upper()
     if (choice) == "YES": printAntonym = True
     else: printAntonym = False
-    words = input("Enter your words seperated by a comma and a space\nEx. apple, bannana\n").split(', ')
+    spilter = input("How will your words be spilt\nThe default is a comma and space\nEx. comma, space\nHit enter for default\n")
+    if (spilter == ""):spilter = ", "
+    words = input("Enter your words seperated by a " + spilter.lower() + "\nEx. apple, bannana\n").split(spilter)
     for word in words:
         if word[-1] == "-" or word[0] == '-':
             urlEty = "https://www.etymonline.com/search?q=" + word
